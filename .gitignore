@@ -1,5 +1,6 @@
 package-lock.json
 transaction-history.*
+.DS_Store
 
 # Logs
 logs

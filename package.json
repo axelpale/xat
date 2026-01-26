@@ -1,0 +1,30 @@
+{
+  "name": "xat",
+  "version": "0.0.1",
+  "description": "Bookkeeping",
+  "homepage": "https://github.com/axelpale/xat#readme",
+  "bugs": {
+    "url": "https://github.com/axelpale/xat/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axelpale/xat.git"
+  },
+  "license": "UNLICENSED",
+  "author": "Akseli Palén <akseli.palen@gmail.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "standard"
+  },
+  "dependencies": {
+    "csv-parser": "^3.2.0"
+  },
+  "devDependencies": {
+    "standard": "^17.1.2"
+  }
+}

@@ -1,6 +1,15 @@
 package-lock.json
-transaction-history.*
 .DS_Store
+
+# Common ledger names to ensure privacy
+ledger.*
+history.*
+crypto_log.*
+Crypto Ledger - Book.csv
+Crypto Ledger - Book2.csv
+transactions.*
+transaction-log.*
+transaction-history.*
 
 # Logs
 logs

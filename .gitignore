@@ -10,6 +10,7 @@ Crypto Ledger - Book2.csv
 transactions.*
 transaction-log.*
 transaction-history.*
+transaction_history.*
 
 # Logs
 logs

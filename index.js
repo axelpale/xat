@@ -9,7 +9,7 @@ const main = async function () {
   const accounts = new AccountCollection()
   const events = processRows(accounts, rows)
 
-  printReport(events)
+  printReport(accounts, events)
 }
 
 main()

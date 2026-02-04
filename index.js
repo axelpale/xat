@@ -13,8 +13,10 @@ const main = async function () {
   // Collect financial events. Separate by type and tax consequences.
   const events = new EventCollection()
 
-  processRows(accounts, events, rows)
-  printReport(accounts, events)
+  const success = processRows(accounts, events, rows)
+  if (success) {
+    printReport(accounts, events)
+  }
 }
 
 main()

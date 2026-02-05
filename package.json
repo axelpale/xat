@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "standard && npm run test:unit",
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "standard",
     "test:unit": "node test/index.js"
   },
   "dependencies": {

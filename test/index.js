@@ -1,0 +1,1 @@
+require('./Asset.test.js')

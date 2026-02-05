@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "standard"
+    "test": "standard && npm run test:unit",
+    "test:unit": "node test/index.js"
   },
   "dependencies": {
     "big.js": "^7.0.1",

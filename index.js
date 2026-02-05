@@ -3,6 +3,7 @@ const AccountCollection = require('./lib/AccountCollection')
 const EventCollection = require('./lib/EventCollection')
 const processRows = require('./lib/processRows')
 const printReport = require('./lib/printReport')
+const config = require('./lib/readConfig')
 
 const main = async function () {
   const rows = await readRows('transaction-history.csv')
@@ -14,7 +15,7 @@ const main = async function () {
   const events = new EventCollection()
 
   const success = processRows(accounts, events, rows)
-  if (success) {
+  if (success || config.DISPLAY_REPORT_ALWAYS) {
     printReport(accounts, events)
   }
 }

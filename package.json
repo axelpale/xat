@@ -27,6 +27,7 @@
     "csv-parser": "^3.2.0"
   },
   "devDependencies": {
-    "standard": "^17.1.2"
+    "standard": "^17.1.2",
+    "tape": "^5.9.0"
   }
 }

@@ -5,6 +5,7 @@ package-lock.json
 # Common ledger names to ensure privacy
 ledger.*
 history.*
+ledger-history.*
 crypto_log.*
 Crypto Ledger - Book.csv
 Crypto Ledger - Book2.csv

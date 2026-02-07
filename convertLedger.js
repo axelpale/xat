@@ -5,6 +5,25 @@ const joinRewards = require('./lib/ledger/joinRewards')
 const filterColumns = require('./lib/ledger/filterColumns')
 const writeTransactionHistory = require('./lib/writeTransactionHistory')
 
+const normalizeType = (type) => {
+  switch (type) {
+    case 'trade_tradespot':
+      return 'trade'
+    case 'staking':
+    case 'earn_reward':
+    case 'transfer_spotfromfutures':
+      return 'reward'
+    case 'earn_allocation':
+    case 'earn_deallocation':
+    case 'earn_migration':
+    case 'deposit':
+    case 'withdrawal':
+      return 'move'
+    default:
+      return type
+  }
+}
+
 const main = async function () {
   const ledgerRows = await readLedger('ledger.csv')
 
@@ -15,7 +34,7 @@ const main = async function () {
   const denseRows = joinSimilarRows(rows)
 
   // Join reward rows until other actions on the account.
-  const denserRows = joinRewards(denseRows)
+  const denserRows1 = joinRewards(denseRows)
 
   // Strip unnecessary columns for easier debugging.
   const columns = [
@@ -33,10 +52,17 @@ const main = async function () {
     'senderBalance',
     'receiverBalance'
   ]
-  const denserrRows = filterColumns(denserRows, columns)
+  const denserRows2 = filterColumns(denserRows1, columns)
+
+  // Normalize type
+  const denserRows3 = denserRows2.map(row => {
+    return Object.assign({}, row, {
+      type: normalizeType(row.type)
+    })
+  })
 
   // Write a CSV file.
-  writeTransactionHistory(denserrRows, 'ledger-history.csv')
+  writeTransactionHistory(denserRows3, 'ledger-history.csv')
 }
 
 main()

@@ -1,6 +1,7 @@
 const readLedger = require('./lib/ledger/readLedger')
 const convertToRows = require('./lib/ledger/convertToRows')
 const joinSimilarRows = require('./lib/ledger/joinSimilarRows')
+const joinRewards = require('./lib/ledger/joinRewards')
 const filterColumns = require('./lib/ledger/filterColumns')
 const writeTransactionHistory = require('./lib/writeTransactionHistory')
 
@@ -12,6 +13,9 @@ const main = async function () {
 
   // Join similar rows so that the resulting spreadsheet is more manageable.
   const denseRows = joinSimilarRows(rows)
+
+  // Join reward rows until other actions on the account.
+  const denserRows = joinRewards(denseRows)
 
   // Strip unnecessary columns for easier debugging.
   const columns = [
@@ -29,10 +33,10 @@ const main = async function () {
     'senderBalance',
     'receiverBalance'
   ]
-  const denserRows = filterColumns(denseRows, columns)
+  const denserrRows = filterColumns(denserRows, columns)
 
   // Write a CSV file.
-  writeTransactionHistory(denserRows, 'ledger-history.csv')
+  writeTransactionHistory(denserrRows, 'ledger-history.csv')
 }
 
 main()

@@ -9,11 +9,13 @@ history.*
 ledger-history.*
 crypto_log.*
 Crypto Ledger - Book.csv
-Crypto Ledger - Book2.csv
+Crypto Ledger - Book*.csv
 transactions.*
 transaction-log.*
 transaction-history*.*
 transaction_history.*
+data/*.*
+!data/.gitkeep
 
 # Logs
 logs

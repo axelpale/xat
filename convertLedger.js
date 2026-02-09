@@ -25,7 +25,7 @@ const normalizeType = (type) => {
 }
 
 const main = async function () {
-  const ledgerRows = await readLedger('ledger.csv')
+  const ledgerRows = await readLedger('data/ledger.csv')
 
   // Process the ledger rows. Chronological order. Connect by reference id.
   const rows = convertToRows(ledgerRows)
@@ -62,7 +62,7 @@ const main = async function () {
   })
 
   // Write a CSV file.
-  writeTransactionHistory(denserRows3, 'ledger-history.csv')
+  writeTransactionHistory(denserRows3, 'data/ledger-normalized.csv')
 }
 
 main()

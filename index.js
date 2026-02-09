@@ -6,7 +6,7 @@ const printReport = require('./lib/printReport')
 const config = require('./lib/readConfig')
 
 const main = async function () {
-  const rows = await readRows('transaction-history.csv')
+  const rows = await readRows('data/transaction-history.csv')
 
   // Maintain accounts.
   // Each account has a name and a basket of assets of one unit.

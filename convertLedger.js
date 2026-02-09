@@ -4,6 +4,8 @@ const joinSimilarRows = require('./lib/ledger/joinSimilarRows')
 const joinRewards = require('./lib/ledger/joinRewards')
 const filterColumns = require('./lib/ledger/filterColumns')
 const writeTransactionHistory = require('./lib/writeTransactionHistory')
+const getDateFromDateTime = require('./lib/ledger/getDateFromDateTime')
+const getTimeFromDateTime = require('./lib/ledger/getTimeFromDateTime')
 
 const normalizeType = (type) => {
   switch (type) {
@@ -61,8 +63,16 @@ const main = async function () {
     })
   })
 
+  // Split date and time
+  const denserRows4 = denserRows3.map(row => {
+    return Object.assign({}, row, {
+      date: getDateFromDateTime(row.date),
+      time: getTimeFromDateTime(row.date)
+    })
+  })
+
   // Write a CSV file.
-  writeTransactionHistory(denserRows3, 'data/ledger-normalized.csv')
+  writeTransactionHistory(denserRows4, 'data/ledger-normalized.csv')
 }
 
 main()

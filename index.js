@@ -7,6 +7,7 @@ const printReport = require('./lib/printReport')
 const config = require('./lib/readConfig')
 
 const main = async function () {
+  // Read rows from the input ledger
   const rows = await readRows('data/transaction-history.csv')
 
   // Maintain accounts.

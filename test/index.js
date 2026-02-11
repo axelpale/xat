@@ -1,1 +1,2 @@
 require('./Asset.test.js')
+require('./inRange.test.js')

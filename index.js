@@ -3,7 +3,8 @@ const AccountCollection = require('./lib/AccountCollection')
 const EventCollection = require('./lib/EventCollection')
 const getRowsBeforeDate = require('./lib/getRowsBeforeDate')
 const processRows = require('./lib/processRows')
-const printReport = require('./lib/printReport')
+// const printReport = require('./lib/printReport')
+const printTaxReport = require('./lib/printTaxReport')
 const prices = require('./lib/prices')
 const config = require('./lib/readConfig')
 
@@ -29,7 +30,9 @@ const main = async function () {
 
   const success = processRows(accounts, events, rowBatch)
   if (success || config.DISPLAY_REPORT_ALWAYS) {
-    printReport(accounts, events)
+    // printReport(accounts, events)
+
+    printTaxReport(accounts, events, 2025)
   }
 }
 

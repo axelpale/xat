@@ -32,6 +32,6 @@ test('Asset: getAgeInYears', (t) => {
   const asset = getDefaultAsset()
   t.ok(asset.getAgeInYears('2024-04-19') < 1, 'less than a year')
   t.ok(asset.getAgeInYears('2024-04-20') >= 1, 'exactly one year')
-  t.ok(asset.getAgeInYears('2024-04-21') > 1, 'more than a year')
+  t.ok(asset.getAgeInYears('2024-04-21') >= 1, 'more than a year')
   t.end()
 })

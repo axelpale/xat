@@ -23,7 +23,7 @@ test('Asset: ensure methods available', (t) => {
   // Instance methods
   const asset = getDefaultAsset()
   t.ok(typeof asset.split === 'function', 'split available')
-  t.ok(typeof asset.addExpenseEur === 'function', 'addExpensesEur available')
+  t.ok(typeof asset.addExpenseEur === 'function', 'addExpenseEur available')
 
   t.end()
 })

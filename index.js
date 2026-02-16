@@ -12,6 +12,10 @@ const main = async function () {
   // Read rows from the input ledger
   const rows = await readRows('data/transaction-history.csv')
 
+  if (rows.length < 1) {
+    throw new Error('No valid rows to process.')
+  }
+
   // Maintain accounts.
   // Each account has a name and a basket of assets of one unit.
   const accounts = new AccountCollection()

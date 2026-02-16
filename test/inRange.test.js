@@ -1,5 +1,5 @@
 const test = require('tape')
-const inRange = require('../lib/inRange')
+const inRange = require('../lib/utils/inRange')
 
 test('inRange: ensure expected behavior', (t) => {
   t.ok(inRange(2, 1, 3), 'should 2 be between 1 and 3')

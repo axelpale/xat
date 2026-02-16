@@ -1,5 +1,5 @@
 const test = require('tape')
-const inSpread = require('../lib/inSpread')
+const inSpread = require('../lib/utils/inSpread')
 
 test('inSpread: ensure expected behavior', (t) => {
   t.ok(inSpread(10, 5, 1), 'should allow max value')

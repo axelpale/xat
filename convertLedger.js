@@ -4,8 +4,8 @@ const joinSimilarRows = require('./lib/ledger/joinSimilarRows')
 const joinRewards = require('./lib/ledger/joinRewards')
 const filterColumns = require('./lib/ledger/filterColumns')
 const writeTransactionHistory = require('./lib/writeTransactionHistory')
-const getDateFromDateTime = require('./lib/ledger/getDateFromDateTime')
-const getTimeFromDateTime = require('./lib/ledger/getTimeFromDateTime')
+const getDateFromDateTime = require('./lib/utils/getDateFromDateTime')
+const getTimeFromDateTime = require('./lib/utils/getTimeFromDateTime')
 
 const normalizeType = (type) => {
   switch (type) {

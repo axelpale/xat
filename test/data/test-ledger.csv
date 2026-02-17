@@ -1,0 +1,7 @@
+Date UTC,Voucher,Type,Description,Protocol,ID,From Address,To Address,From Account,To Account,Sent,Sent Unit,Received,Received Unit,Fee,Fee Unit,Fee Account,Exchange Rate,ExRate Unit,USD/EUR Exchange Rate,Sent Unit Value EUR,Received Unit Value EUR,Fee Unit Price EUR,Sender Balance,Unit of Sender Balance,Receiver Balance,Unit of Receiver Balance
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-04-03,,reward,Auto-staking rewards,Test Exchange,,,,,Wallet BTC,,,0.00001000,BTC,0.00000200,BTC,,,,,,,,,,0.00001000,BTC
+2026-04-02,,move,Withdraw BTC,Test Exchange via Bitcoin Network,,,,Wallet BTC,Paper Wallet BTC,0.00090000,BTC,0.00090000,BTC,0.00010000,BTC,,,,,,,,0.00000000,BTC,0.00090000,BTC
+2026-04-02,,trade,Sell BTC,Test Exchange,,,,Wallet BTC,Wallet EUR,0.00100000,BTC,77.00000000,EUR,3.00000000,EUR,,,,,80000.00000000,1.00000000,,0.00100000,BTC,818.00000000,EUR
+2026-02-02,,trade,Buy BTC,Test Exchange,,,,Wallet EUR,Wallet BTC,100.00000000,EUR,0.00200000,BTC,2.00000000,EUR,,,,,1.00000000,50000.00000000,,898.00000000,EUR,0.00200000,BTC
+2026-02-01,,init,Initial EUR balance,,,,,,Wallet EUR,,,1000.00000000,EUR,,,,,,,,,,,,1000.00000000,EUR

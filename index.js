@@ -10,7 +10,7 @@ const config = require('./lib/readConfig')
 
 const main = async function () {
   // Read rows from the input ledger
-  const rows = await readRows('data/transaction-history.csv')
+  const rows = await readRows(config.SOURCE_LEDGER)
 
   if (rows.length < 1) {
     throw new Error('No valid rows to process.')

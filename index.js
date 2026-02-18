@@ -4,6 +4,7 @@ const EventCollection = require('./lib/EventCollection')
 const getRowsBeforeDate = require('./lib/getRowsBeforeDate')
 const processRows = require('./lib/processRows')
 const printAnnualReport = require('./lib/reports/printAnnualReport')
+const printSummaryReport = require('./lib/reports/printSummaryReport')
 const printTaxReport = require('./lib/reports/printTaxReport')
 const prices = require('./lib/prices')
 const config = require('./lib/readConfig')
@@ -35,6 +36,7 @@ const main = async function () {
   const success = processRows(accounts, events, rowBatch)
   if (success || config.DISPLAY_REPORT_ALWAYS) {
     printAnnualReport(accounts, events)
+    printSummaryReport(accounts, events)
 
     // Print the tax report for all the years.
     const yearRange = events.findYearRangeAny()

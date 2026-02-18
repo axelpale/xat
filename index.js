@@ -36,7 +36,11 @@ const main = async function () {
   if (success || config.DISPLAY_REPORT_ALWAYS) {
     printAnnualReport(accounts, events)
 
-    printTaxReport(accounts, events, 2025)
+    // Print the tax report for all the years.
+    const yearRange = events.findYearRangeAny()
+    for (let y = yearRange.minYear; y <= yearRange.maxYear; y++) {
+      printTaxReport(accounts, events, y)
+    }
   }
 }
 

@@ -5,6 +5,7 @@ package-lock.json
 
 # Common ledger names to ensure privacy
 ledger.*
+journal.*
 history.*
 ledger-history.*
 crypto_log.*

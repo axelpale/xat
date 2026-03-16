@@ -2,7 +2,25 @@
 
 ![Logo](doc/xat_logo.png)
 
-Asset bookkeeping algorithm for Finnish taxation.
+Asset bookkeeping algorithm for Finnish cryptocurrency taxation.
+
+### Features:
+
+- Double-entry accounting
+- Maintain account-level FIFO-ordering of acquired assets.
+- Process transaction journal file into assets, accounts, and tax events.
+- Compute account balances at any given time.
+- Automatic error detection of negative balance and balance mismatch.
+- Configurable error-tolerance of balance mismatch.
+- Support checking against known balance.
+- Generate annual reports of transactions and balances.
+- Realize transaction fees that were charged in crypto.
+- Carry transaction fees into associated sales for tax deduction.
+- Uses CoinGecko.com data for default asset price retrieval.
+- Comprehensive sanity checks of recorded values and prices.
+- Readable error messages that help in correcting the books.
+- Configurable run mode: stop after the first error or just skip and continue.
+
 
 # Installation
 

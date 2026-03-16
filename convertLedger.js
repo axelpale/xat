@@ -1,3 +1,8 @@
+// This file reads Kraken-ledger and outputs a xat ledger.
+// - Merges the rows into executed orders.
+// - Converts the row and fees into xat ledger format.
+// - Groups proof-of-stake rewards a bit.
+//
 const readLedger = require('./lib/ledger/readLedger')
 const convertToRows = require('./lib/ledger/convertToRows')
 const joinSimilarRows = require('./lib/ledger/joinSimilarRows')

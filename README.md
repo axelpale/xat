@@ -1,5 +1,7 @@
 # xat
 
+![Logo](doc/xat_logo.png)
+
 Asset bookkeeping algorithm for Finnish taxation.
 
 # Installation

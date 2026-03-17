@@ -7,6 +7,7 @@ Asset bookkeeping algorithm for Finnish cryptocurrency taxation.
 ### Features:
 
 - Double-entry accounting
+- High-precision decimal representation of financial numbers ([big.js](https://github.com/mikemcl/big.js/))
 - Maintain account-level FIFO-ordering of acquired assets.
 - Process transaction journal file into assets, accounts, and tax events.
 - Compute account balances at any given time.

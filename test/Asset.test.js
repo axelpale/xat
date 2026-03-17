@@ -8,9 +8,12 @@ const getDefaultAsset = () => {
   const origin = 'Dogecoin Network'
   const date = '2023-04-20'
   const unitPrice = new BigNumber('0.08')
-  const expenses = new BigNumber('2.025')
+  const expense = new BigNumber('2.025')
 
-  return new Asset(amount, unit, origin, date, unitPrice, expenses)
+  const asset = new Asset(amount, unit, origin, date, unitPrice)
+  asset.addExpenseEur(date, expense)
+
+  return asset
 }
 
 test('Asset: ensure methods available', (t) => {

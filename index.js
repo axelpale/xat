@@ -11,6 +11,7 @@ const printBalanceReport = require('./lib/reports/printBalanceReport')
 const printAssetsReport = require('./lib/reports/printAssetsReport')
 const printSalesReport = require('./lib/reports/printSalesReport')
 const printRewardsReport = require('./lib/reports/printRewardsReport')
+const printTransactionsReport = require('./lib/reports/printTransactionsReport')
 const prices = require('./lib/prices')
 const config = require('./lib/readConfig')
 
@@ -61,6 +62,7 @@ const main = async function () {
 
     printSalesReport(accounts, events, year)
     printRewardsReport(accounts, events, year)
+    printTransactionsReport(accounts, events, year)
 
     const endOfYear = `${year}-12-31`
     printBalanceReport(accounts, endOfYear)

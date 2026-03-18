@@ -1,5 +1,6 @@
 require('./Asset.test.js')
 require('./GiftAsset.test.js')
+require('./groupRowsByYear.test.js')
 require('./getYearFromDateTime.test.js')
 require('./diffDays.test.js')
 require('./inRange.test.js')

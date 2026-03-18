@@ -3,7 +3,13 @@
   "DISPLAY_ERROR_ROW": false,
   "DISPLAY_ERROR_TRACE": false,
   "DISPLAY_REPORT_ALWAYS": false,
+
+  // Array of accounts to exclude from balance reports.
+  "REPORTS_EXCLUDE_ACCOUNTS": [],
+
   "SOURCE_LEDGER": "data/transaction-history.csv",
   "STOP_AFTER_FIRST_ERROR": false,
+
+  // Control what part of the ledger will be processed.
   "STOP_BEFORE_DATE": "9999-12-31"
 }

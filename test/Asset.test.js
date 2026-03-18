@@ -6,11 +6,12 @@ const getDefaultAsset = () => {
   const amount = new BigNumber(10000)
   const unit = 'DOGE'
   const origin = 'Dogecoin Network'
+  const id = 1
   const date = '2023-04-20'
   const unitPrice = new BigNumber('0.08')
   const expense = new BigNumber('2.025')
 
-  const asset = new Asset(amount, unit, origin, date, unitPrice)
+  const asset = new Asset(amount, unit, origin, id, date, unitPrice)
   asset.addExpenseEur(date, expense)
 
   return asset
@@ -36,5 +37,20 @@ test('Asset: getAgeInYears', (t) => {
   t.ok(asset.getAgeInYears('2024-04-19') < 1, 'less than a year')
   t.ok(asset.getAgeInYears('2024-04-20') >= 1, 'exactly one year')
   t.ok(asset.getAgeInYears('2024-04-21') >= 1, 'more than a year')
+  t.end()
+})
+
+test('Asset: split', (t) => {
+  const asset = getDefaultAsset()
+
+  const shard = asset.split(new BigNumber('5000'))
+
+  t.ok(shard instanceof Asset, 'should be correct instance type')
+  t.ok(shard.amount.eq(new BigNumber('5000')), 'should be split in amount')
+  t.equal(shard.acquisitionId, asset.acquisitionId, 'should share row id')
+
+  const acqPrice = shard.getAcquisitionPriceEur('2023-04-20')
+  t.ok(acqPrice.eq(new BigNumber('400.00')), 'share the unit price')
+
   t.end()
 })

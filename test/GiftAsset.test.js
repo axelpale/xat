@@ -6,12 +6,21 @@ const getDefaultAsset = () => {
   const amount = new BigNumber(10000)
   const unit = 'DOGE'
   const origin = 'Dogecoin Network'
+  const id = 1
   const date = '2023-04-20'
   const unitPrice = new BigNumber('0.08')
   const original = new BigNumber('0.01') // Original unit price
   const expense = new BigNumber('2.00')
 
-  const asset = new GiftAsset(amount, unit, origin, date, unitPrice, original)
+  const asset = new GiftAsset(
+    amount,
+    unit,
+    origin,
+    id,
+    date,
+    unitPrice,
+    original
+  )
   asset.addExpenseEur(date, expense)
 
   return asset
@@ -36,6 +45,7 @@ test('GiftAsset: split', (t) => {
 
   t.ok(shard instanceof GiftAsset, 'should be correct instance type')
   t.ok(shard.amount.eq(new BigNumber('5000')), 'should be split in amount')
+  t.equal(shard.acquisitionId, asset.acquisitionId, 'should share row id')
 
   const acqPrice = shard.getAcquisitionPriceEur('2023-04-21')
   t.ok(acqPrice.eq(new BigNumber('50.00')), 'carry the original unit price')

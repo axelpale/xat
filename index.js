@@ -8,6 +8,7 @@ const processRows = require('./lib/processRows')
 const printAnnualReport = require('./lib/reports/printAnnualReport')
 const printSummaryReport = require('./lib/reports/printSummaryReport')
 const printTaxReport = require('./lib/reports/printTaxReport')
+const printBalanceReport = require('./lib/reports/printBalanceReport')
 const prices = require('./lib/prices')
 const config = require('./lib/readConfig')
 
@@ -57,6 +58,7 @@ const main = async function () {
     const year = getYearFromDateTime(firstDate)
 
     printTaxReport(accounts, events, year)
+    printBalanceReport(accounts, `${year}-12-31`)
 
     // TODO balance report per account
     // TODO balance report per currency total

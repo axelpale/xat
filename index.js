@@ -2,6 +2,7 @@ const readRows = require('./lib/readRows')
 const AccountCollection = require('./lib/AccountCollection')
 const EventCollection = require('./lib/EventCollection')
 const getRowsBeforeDate = require('./lib/getRowsBeforeDate')
+const getYearFromDateTime = require('./lib/utils/getYearFromDateTime')
 const groupRowsByYear = require('./lib/utils/groupRowsByYear')
 const processRows = require('./lib/processRows')
 const printAnnualReport = require('./lib/reports/printAnnualReport')
@@ -40,12 +41,22 @@ const main = async function () {
 
   // Process rows year by year.
   let success = true
-  for (let i = 0; i < batches.length; i += 1) {
-    success = processRows(accounts, events, batches[i])
+  let i, batch
+  for (i = 0; i < batches.length; i += 1) {
+    batch = batches[i]
+    success = processRows(accounts, events, batch)
 
     if (!success) {
       break
     }
+    if (batch.length < 1) {
+      continue
+    }
+
+    const firstDate = batch[0].date
+    const year = getYearFromDateTime(firstDate)
+
+    printTaxReport(accounts, events, year)
 
     // TODO balance report per account
     // TODO balance report per currency total
@@ -62,12 +73,6 @@ const main = async function () {
   if (success || config.DISPLAY_REPORT_ALWAYS) {
     printAnnualReport(accounts, events)
     printSummaryReport(accounts, events)
-
-    // Print the tax report for all the years.
-    const yearRange = events.findYearRangeAny()
-    for (let y = yearRange.minYear; y <= yearRange.maxYear; y++) {
-      printTaxReport(accounts, events, y)
-    }
   }
 }
 

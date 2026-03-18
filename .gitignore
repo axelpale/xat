@@ -18,6 +18,9 @@ transaction_history.*
 data/*.*
 data/*/
 !data/.gitkeep
+reports/*.*
+reports/*/
+!reports/.gitkeep
 
 # Logs
 logs

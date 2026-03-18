@@ -7,9 +7,10 @@ const groupRowsByYear = require('./lib/utils/groupRowsByYear')
 const processRows = require('./lib/processRows')
 const printAnnualReport = require('./lib/reports/printAnnualReport')
 const printSummaryReport = require('./lib/reports/printSummaryReport')
-const printTaxReport = require('./lib/reports/printTaxReport')
 const printBalanceReport = require('./lib/reports/printBalanceReport')
 const printAssetsReport = require('./lib/reports/printAssetsReport')
+const printSalesReport = require('./lib/reports/printSalesReport')
+const printRewardsReport = require('./lib/reports/printRewardsReport')
 const prices = require('./lib/prices')
 const config = require('./lib/readConfig')
 
@@ -58,18 +59,16 @@ const main = async function () {
     const firstDate = batch[0].date
     const year = getYearFromDateTime(firstDate)
 
-    printTaxReport(accounts, events, year)
+    printSalesReport(accounts, events, year)
+    printRewardsReport(accounts, events, year)
+
     const endOfYear = `${year}-12-31`
     printBalanceReport(accounts, endOfYear)
     printAssetsReport(accounts, endOfYear)
 
-    // TODO balance report per account
     // TODO balance report per currency total
-    // TODO balance report per acquisition
     // TODO transaction report with computed and known balances
     // TODO acquisition events report
-    // TODO sales income report (aka disposal events report)
-    // TODO rewards income report
     // TODO mining income report
     // TODO airdrops income report
     // TODO gift income report

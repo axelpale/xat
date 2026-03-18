@@ -6,7 +6,8 @@ const readRows = require('../lib/readRows')
 const processRows = require('../lib/processRows')
 const AccountCollection = require('../lib/AccountCollection')
 const EventCollection = require('../lib/EventCollection')
-const collectTaxReport = require('../lib/reports/collectTaxReport')
+const collectSalesData = require('../lib/reports/collectSalesData')
+const collectRewardsData = require('../lib/reports/collectRewardsData')
 
 test('processRows: ensure accounts match', async (t) => {
   // Read the prices
@@ -23,7 +24,8 @@ test('processRows: ensure accounts match', async (t) => {
   t.ok(accounts.hasAccount('Wallet BTC', 'BTC'), 'has btc wallet')
   t.ok(accounts.hasAccount('Paper Wallet BTC', 'BTC'), 'has paper wallet')
 
-  const { salesData, rewardsData } = collectTaxReport(accounts, events, 2026)
+  const salesData = collectSalesData(accounts, events, 2026)
+  const rewardsData = collectRewardsData(accounts, events, 2026)
 
   t.equal(salesData.length, 4, 'expected num of asset sales')
   t.equal(rewardsData.length, 1, 'expected num of rewards')

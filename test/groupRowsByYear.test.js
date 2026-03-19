@@ -1,5 +1,5 @@
 const test = require('tape')
-const groupRowsByYear = require('../lib/utils/groupRowsByYear')
+const groupRowsByYear = require('../lib/rows/groupRowsByYear')
 
 test('groupRowsByYear: ', (t) => {
   const mockRows = [

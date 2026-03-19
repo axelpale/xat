@@ -6,7 +6,6 @@
 const readLedger = require('./lib/ledger/readLedger')
 const convertToRows = require('./lib/ledger/convertToRows')
 const joinSimilarRows = require('./lib/ledger/joinSimilarRows')
-const joinRewards = require('./lib/ledger/joinRewards')
 const filterColumns = require('./lib/ledger/filterColumns')
 const writeTransactionHistory = require('./lib/ledger/writeTransactionHistory')
 const getDateFromDateTime = require('./lib/utils/getDateFromDateTime')
@@ -41,7 +40,7 @@ const main = async function () {
   const denseRows = joinSimilarRows(rows)
 
   // Join reward rows until other actions on the account.
-  const denserRows1 = joinRewards(denseRows)
+  // const denserRows1 = joinRewards(denseRows)
 
   // Strip unnecessary columns for easier debugging.
   const columns = [
@@ -59,7 +58,7 @@ const main = async function () {
     'senderBalance',
     'receiverBalance'
   ]
-  const denserRows2 = filterColumns(denserRows1, columns)
+  const denserRows2 = filterColumns(denseRows, columns)
 
   // Normalize type
   const denserRows3 = denserRows2.map(row => {

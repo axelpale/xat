@@ -19,6 +19,10 @@ const normalizeType = (type) => {
     case 'earn_reward':
     case 'transfer_spotfromfutures':
       return 'reward'
+    case 'transfer_stakingfromspot':
+    case 'transfer_stakingtospot':
+    case 'transfer_spotfromstaking':
+    case 'transfer_spottostaking':
     case 'earn_allocation':
     case 'earn_deallocation':
     case 'earn_migration':
@@ -30,14 +34,38 @@ const normalizeType = (type) => {
   }
 }
 
+const normalizeUnit = (unit) => {
+  switch (unit) {
+    case 'ADA.S': return 'ADA'
+    case 'ETH2': return 'ETH'
+    case 'FLOW.S': return 'FLOW'
+    case 'GRT28.S': return 'GRT'
+    case 'GRT.S': return 'GRT'
+    case 'MATIC04.S': return 'MATIC'
+    case 'USDC.M': return 'USDC'
+    case 'USDT.M': return 'USDT'
+    case 'XTZ.S': return 'XTZ'
+    default: return unit
+  }
+}
+
 const main = async function () {
   const ledgerRows = await readLedger('data/exchange-ledger.csv')
 
   // Process the ledger rows. Chronological order. Connect by reference id.
-  const rows = convertToRows(ledgerRows)
+  let rows = convertToRows(ledgerRows)
+
+  // Simplify PoS units.
+  rows = rows.map(row => {
+    return Object.assign({}, row, {
+      sentUnit: normalizeUnit(row.sentUnit),
+      receivedUnit: normalizeUnit(row.receivedUnit),
+      feeUnit: normalizeUnit(row.feeUnit)
+    })
+  })
 
   // Join similar rows so that the resulting spreadsheet is more manageable.
-  const denseRows = joinSimilarRows(rows)
+  rows = joinSimilarRows(rows)
 
   // Join reward rows until other actions on the account.
   // const denserRows1 = joinRewards(denseRows)
@@ -58,17 +86,17 @@ const main = async function () {
     'senderBalance',
     'receiverBalance'
   ]
-  const denserRows2 = filterColumns(denseRows, columns)
+  rows = filterColumns(rows, columns)
 
   // Normalize type
-  const denserRows3 = denserRows2.map(row => {
+  rows = rows.map(row => {
     return Object.assign({}, row, {
       type: normalizeType(row.type)
     })
   })
 
   // Split date and time
-  const denserRows4 = denserRows3.map(row => {
+  rows = rows.map(row => {
     return Object.assign({}, row, {
       date: getDateFromDateTime(row.date),
       time: getTimeFromDateTime(row.date)
@@ -76,7 +104,7 @@ const main = async function () {
   })
 
   // Write a CSV file.
-  writeTransactionHistory(denserRows4, 'data/exchange-ledger-normalized.csv')
+  writeTransactionHistory(rows, 'data/exchange-ledger-normalized.csv')
 }
 
 main()

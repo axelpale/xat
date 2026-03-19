@@ -39,6 +39,8 @@ const main = async function () {
   // Preload price history data.
   await prices.loadPriceHistory('BTC')
   await prices.loadPriceHistory('ETH')
+  await prices.loadPriceHistory('SOL')
+  await prices.loadPriceHistory('ADA')
 
   // Split rows into annual batches.
   const batches = groupRowsByYear(selectedRows)

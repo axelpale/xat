@@ -8,7 +8,7 @@ const convertToRows = require('./lib/ledger/convertToRows')
 const joinSimilarRows = require('./lib/ledger/joinSimilarRows')
 const joinRewards = require('./lib/ledger/joinRewards')
 const filterColumns = require('./lib/ledger/filterColumns')
-const writeTransactionHistory = require('./lib/writeTransactionHistory')
+const writeTransactionHistory = require('./lib/ledger/writeTransactionHistory')
 const getDateFromDateTime = require('./lib/utils/getDateFromDateTime')
 const getTimeFromDateTime = require('./lib/utils/getTimeFromDateTime')
 
@@ -32,7 +32,7 @@ const normalizeType = (type) => {
 }
 
 const main = async function () {
-  const ledgerRows = await readLedger('data/ledger.csv')
+  const ledgerRows = await readLedger('data/exchange-ledger.csv')
 
   // Process the ledger rows. Chronological order. Connect by reference id.
   const rows = convertToRows(ledgerRows)
@@ -77,7 +77,7 @@ const main = async function () {
   })
 
   // Write a CSV file.
-  writeTransactionHistory(denserRows4, 'data/ledger-normalized.csv')
+  writeTransactionHistory(denserRows4, 'data/exchange-ledger-normalized.csv')
 }
 
 main()

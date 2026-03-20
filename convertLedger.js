@@ -141,6 +141,39 @@ const main = async function () {
     })
   })
 
+  // Arrange columns and fill in missing
+  rows = rows.map(row => {
+    return {
+      date: row.date,
+      voucher: '2024-12-31-06',
+      type: row.type,
+      desc: row.desc,
+      protocol: 'Kraken Exchange',
+      txid: null,
+      fromAddress: null,
+      toAddress: null,
+      fromAccount: row.fromAccount,
+      toAccount: row.toAccount,
+      sentAmount: row.sentAmount,
+      sentUnit: row.sentUnit,
+      receivedAmount: row.receivedAmount,
+      receivedUnit: row.receivedUnit,
+      feeAmount: row.feeAmount,
+      feeUnit: row.feeUnit,
+      feeAccount: null,
+      exRate: null,
+      exRateUnit: null,
+      usdeurRate: null,
+      sentUnitPriceEur: row.sentUnitPriceEur,
+      receivedUnitPriceEur: row.receivedUnitPriceEur,
+      feeUnitPriceEur: null,
+      senderBalance: row.senderBalance,
+      senderUnit: row.sentUnit,
+      receiverBalance: row.receiverBalance,
+      receiverUnit: row.receivedUnit
+    }
+  })
+
   // Write a CSV file.
   writeTransactionHistory(rows, 'data/exchange-ledger-normalized.csv')
 }

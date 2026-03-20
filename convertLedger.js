@@ -78,6 +78,7 @@ const main = async function () {
   await prices.loadPriceHistory('MINA')
   await prices.loadPriceHistory('POL')
   await prices.loadPriceHistory('SOL')
+  await prices.loadPriceHistory('TRX')
   await prices.loadPriceHistory('USDC')
   await prices.loadPriceHistory('USDT')
 

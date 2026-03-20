@@ -10,6 +10,7 @@ const filterColumns = require('./lib/ledger/filterColumns')
 const writeTransactionHistory = require('./lib/ledger/writeTransactionHistory')
 const getDateFromDateTime = require('./lib/utils/getDateFromDateTime')
 const getTimeFromDateTime = require('./lib/utils/getTimeFromDateTime')
+const prices = require('./lib/prices')
 
 const normalizeType = (type) => {
   switch (type) {
@@ -50,7 +51,35 @@ const normalizeUnit = (unit) => {
   }
 }
 
+const findUnitPrice = (unit, date) => {
+  // Find EUR price for the given unit on the given date.
+  //
+  // Return
+  //   a BigNumber or null if no data can be found.
+  //
+  if (!unit || typeof unit !== 'string' || unit === '') {
+    return null
+  }
+  if (!date || typeof date !== 'string') {
+    return null
+  }
+  return prices.getPriceEur(unit, date)
+}
+
 const main = async function () {
+  // Preload price history data.
+  await prices.loadPriceHistory('ADA')
+  await prices.loadPriceHistory('BTC')
+  await prices.loadPriceHistory('ETH')
+  await prices.loadPriceHistory('FLOW')
+  await prices.loadPriceHistory('GRT')
+  await prices.loadPriceHistory('LUNA2')
+  await prices.loadPriceHistory('MATIC')
+  await prices.loadPriceHistory('POL')
+  await prices.loadPriceHistory('SOL')
+  await prices.loadPriceHistory('USDC')
+  await prices.loadPriceHistory('USDT')
+
   const ledgerRows = await readLedger('data/exchange-ledger.csv')
 
   // Process the ledger rows. Chronological order. Connect by reference id.
@@ -101,6 +130,14 @@ const main = async function () {
     return Object.assign({}, row, {
       date: getDateFromDateTime(row.date),
       time: getTimeFromDateTime(row.date)
+    })
+  })
+
+  // Add unit prices
+  rows = rows.map(row => {
+    return Object.assign({}, row, {
+      sentUnitPriceEur: findUnitPrice(row.sentUnit, row.date),
+      receivedUnitPriceEur: findUnitPrice(row.receivedUnit, row.date)
     })
   })
 

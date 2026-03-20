@@ -75,6 +75,7 @@ const main = async function () {
   await prices.loadPriceHistory('GRT')
   await prices.loadPriceHistory('LUNA2')
   await prices.loadPriceHistory('MATIC')
+  await prices.loadPriceHistory('MINA')
   await prices.loadPriceHistory('POL')
   await prices.loadPriceHistory('SOL')
   await prices.loadPriceHistory('USDC')

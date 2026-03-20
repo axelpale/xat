@@ -17,8 +17,9 @@ const normalizeType = (type) => {
       return 'trade'
     case 'staking':
     case 'earn_reward':
-    case 'transfer_spotfromfutures':
       return 'reward'
+    case 'transfer_spotfromfutures':
+      return 'airdrop'
     case 'transfer_stakingfromspot':
     case 'transfer_stakingtospot':
     case 'transfer_spotfromstaking':

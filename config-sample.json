@@ -4,6 +4,10 @@
   "DISPLAY_ERROR_TRACE": false,
   "DISPLAY_REPORT_ALWAYS": false,
 
+  // Number of days from acquisition or disposal of asset so that
+  // an expense can be considered acquisition expense of sale expense.
+  "EXPENSE_DAY_MARGIN": 14,
+
   // Array of accounts to exclude from balance reports.
   "REPORTS_EXCLUDE_ACCOUNTS": [],
 

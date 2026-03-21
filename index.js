@@ -10,6 +10,7 @@ const printSummaryReport = require('./lib/reports/printSummaryReport')
 const printBalanceReport = require('./lib/reports/printBalanceReport')
 const printAssetsReport = require('./lib/reports/printAssetsReport')
 const printGiftsReport = require('./lib/reports/printGiftsReport')
+const printMiningReport = require('./lib/reports/printMiningReport')
 const printRewardsReport = require('./lib/reports/printRewardsReport')
 const printSalesReport = require('./lib/reports/printSalesReport')
 const printTransactionsReport = require('./lib/reports/printTransactionsReport')
@@ -64,6 +65,7 @@ const main = async function () {
     const year = getYearFromDateTime(firstDate)
 
     printGiftsReport(accounts, events, year)
+    printMiningReport(accounts, events, year)
     printRewardsReport(accounts, events, year)
     printSalesReport(accounts, events, year)
     printTransactionsReport(accounts, events, year)
@@ -73,11 +75,8 @@ const main = async function () {
     printAssetsReport(accounts, endOfYear)
 
     // TODO balance report per currency total
-    // TODO transaction report with computed and known balances
     // TODO acquisition events report
-    // TODO mining income report
     // TODO airdrops income report
-    // TODO gift income report
   }
 
   if (success || config.DISPLAY_REPORT_ALWAYS) {

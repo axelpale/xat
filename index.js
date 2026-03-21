@@ -9,6 +9,7 @@ const printAnnualReport = require('./lib/reports/printAnnualReport')
 const printSummaryReport = require('./lib/reports/printSummaryReport')
 const printBalanceReport = require('./lib/reports/printBalanceReport')
 const printAssetsReport = require('./lib/reports/printAssetsReport')
+const printGiftsReport = require('./lib/reports/printGiftsReport')
 const printRewardsReport = require('./lib/reports/printRewardsReport')
 const printSalesReport = require('./lib/reports/printSalesReport')
 const printTransactionsReport = require('./lib/reports/printTransactionsReport')
@@ -62,6 +63,7 @@ const main = async function () {
     const firstDate = batch[0].date
     const year = getYearFromDateTime(firstDate)
 
+    printGiftsReport(accounts, events, year)
     printRewardsReport(accounts, events, year)
     printSalesReport(accounts, events, year)
     printTransactionsReport(accounts, events, year)

@@ -70,7 +70,7 @@ const main = async function () {
 
     printAirdropsReport(accounts, events, rangeBegin, rangeEnd)
     printGiftsReport(accounts, events, rangeBegin, rangeEnd)
-    printMiningReport(accounts, events, year)
+    printMiningReport(accounts, events, rangeBegin, rangeEnd)
     printRewardsReport(accounts, events, year)
     printSalesReport(accounts, events, year)
     printTransactionsReport(accounts, events, year)

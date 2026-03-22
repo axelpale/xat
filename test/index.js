@@ -7,6 +7,7 @@ require('./inSpread.test.js')
 // Classes
 require('./Asset.test.js')
 require('./GiftAsset.test.js')
+require('./EventCollection.test.js')
 // High-level process
 require('./prices.test.js')
 require('./processRows.test.js')

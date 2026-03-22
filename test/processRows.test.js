@@ -24,8 +24,10 @@ test('processRows: ensure accounts match', async (t) => {
   t.ok(accounts.hasAccount('Wallet BTC', 'BTC'), 'has btc wallet')
   t.ok(accounts.hasAccount('Paper Wallet BTC', 'BTC'), 'has paper wallet')
 
+  const date0 = '2026-01-01'
+  const date1 = '2027-01-01'
   const salesData = collectSalesData(accounts, events, 2026)
-  const rewardsData = collectRewardsData(accounts, events, 2026)
+  const rewardsData = collectRewardsData(accounts, events, date0, date1)
 
   t.equal(salesData.length, 4, 'expected num of asset sales')
   t.equal(rewardsData.length, 1, 'expected num of rewards')

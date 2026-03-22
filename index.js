@@ -72,7 +72,7 @@ const main = async function () {
     printGiftsReport(accounts, events, rangeBegin, rangeEnd)
     printMiningReport(accounts, events, rangeBegin, rangeEnd)
     printRewardsReport(accounts, events, rangeBegin, rangeEnd)
-    printSalesReport(accounts, events, year)
+    printSalesReport(accounts, events, rangeBegin, rangeEnd)
     printTransactionsReport(accounts, events, year)
 
     const endOfYear = `${year}-12-31`

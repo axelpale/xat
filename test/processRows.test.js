@@ -26,7 +26,7 @@ test('processRows: ensure accounts match', async (t) => {
 
   const date0 = '2026-01-01'
   const date1 = '2027-01-01'
-  const salesData = collectSalesData(accounts, events, 2026)
+  const salesData = collectSalesData(accounts, events, date0, date1)
   const rewardsData = collectRewardsData(accounts, events, date0, date1)
 
   t.equal(salesData.length, 4, 'expected num of asset sales')

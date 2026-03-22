@@ -65,16 +65,6 @@ const main = async function () {
     const firstDate = batch[0].date
     const year = getYearFromDateTime(firstDate)
 
-    const rangeBegin = `${year}-01-01`
-    const rangeEnd = `${year + 1}-01-01`
-
-    printAirdropsReport(accounts, events, rangeBegin, rangeEnd)
-    printGiftsReport(accounts, events, rangeBegin, rangeEnd)
-    printMiningReport(accounts, events, rangeBegin, rangeEnd)
-    printRewardsReport(accounts, events, rangeBegin, rangeEnd)
-    printSalesReport(accounts, events, rangeBegin, rangeEnd)
-    printTransactionsReport(accounts, events, rangeBegin, rangeEnd)
-
     const endOfYear = `${year}-12-31`
     printBalanceReport(accounts, endOfYear)
     printAssetsReport(accounts, endOfYear)
@@ -82,6 +72,16 @@ const main = async function () {
     // TODO balance report per currency total
     // TODO acquisition events report
   }
+
+  const rangeBegin = `2012-01-01`
+  const rangeEnd = `2026-01-01`
+
+  printAirdropsReport(accounts, events, rangeBegin, rangeEnd)
+  printGiftsReport(accounts, events, rangeBegin, rangeEnd)
+  printMiningReport(accounts, events, rangeBegin, rangeEnd)
+  printRewardsReport(accounts, events, rangeBegin, rangeEnd)
+  printSalesReport(accounts, events, rangeBegin, rangeEnd)
+  printTransactionsReport(accounts, events, rangeBegin, rangeEnd)
 
   if (success || config.DISPLAY_REPORT_ALWAYS) {
     printAnnualReport(accounts, events)

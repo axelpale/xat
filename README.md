@@ -2,7 +2,11 @@
 
 ![Logo](doc/xat_logo.png)
 
-Asset bookkeeping algorithm for Finnish cryptocurrency taxation.
+Asset bookkeeping algorithm to help in Finnish cryptocurrency taxation.
+
+### Disclaimer
+
+General correctness cannot be quaranteed. Always validate the results against your own calculations. I wrote his program to help me to compute my taxes in my specific case. Your case might differ.
 
 ### Features:
 

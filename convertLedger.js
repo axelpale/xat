@@ -147,7 +147,7 @@ const main = async function () {
   rows = rows.map(row => {
     return {
       date: row.date,
-      voucher: '2024-12-31-06',
+      documents: '2024-12-31-06',
       type: row.type,
       desc: row.desc,
       protocol: 'Kraken Exchange',

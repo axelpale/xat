@@ -52,7 +52,7 @@ $ npm start
 # Journal Format
 
 - `Date UTC`: the transaction date in ISO format e.g. `2024-02-20`
-- `Voucher`: optional reference ID to receipts and such.
+- `Documents`: optional references to receipts and such documentation.
 - `Type`: the transaction type e.g. `trade` or `move`. See `lib/handlers` for all supported types.
 - `Description`: optional description of the transaction
 - `Protocol`: the platform or network of the transaction. Also used for the origin of assets. For example `Coinbase Exchange`.

@@ -1,4 +1,4 @@
-Date UTC,Voucher,Type,Description,Protocol,ID,From Address,To Address,From Account,To Account,Sent,Sent Unit,Received,Received Unit,Fee,Fee Unit,Fee Account,Exchange Rate,ExRate Unit,USD/EUR Exchange Rate,Sent Unit Value EUR,Received Unit Value EUR,Fee Unit Price EUR,Sender Balance,Unit of Sender Balance,Receiver Balance,Unit of Receiver Balance
+Date UTC,Documents,Type,Description,Protocol,ID,From Address,To Address,From Account,To Account,Sent,Sent Unit,Received,Received Unit,Fee,Fee Unit,Fee Account,Exchange Rate,ExRate Unit,USD/EUR Exchange Rate,Sent Unit Price EUR,Received Unit Price EUR,Fee Unit Price EUR,Sender Balance,Unit of Sender Balance,Receiver Balance,Unit of Receiver Balance
 ,,,,,,,,,,,,,,,,,,,,,,,,,,
 2026-04-10,,trade,Sell all BTC,Test Exchange,,,,Wallet BTC,Wallet EUR,0.00193000,BTC,66.00000000,EUR,3.48000000,EUR,,,,,36000.00000000,1.00000000,,0.00000000,BTC,921.00000000,EUR
 2026-04-03,,reward,Auto-staking rewards,Test Exchange,,,,,Wallet BTC,,,0.00001000,BTC,0.00000200,BTC,,,,,,82000.00000000,,,,0.00193000,BTC

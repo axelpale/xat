@@ -46,6 +46,12 @@ const main = async function () {
   await prices.loadPriceHistory('ETH')
   await prices.loadPriceHistory('SOL')
   await prices.loadPriceHistory('ADA')
+  await prices.loadPriceHistory('MATIC')
+  await prices.loadPriceHistory('POL')
+  await prices.loadPriceHistory('MINA')
+  await prices.loadPriceHistory('TRX')
+  await prices.loadPriceHistory('GRT')
+  await prices.loadPriceHistory('FLOW')
 
   // Split rows into annual batches.
   const batches = groupRowsByYear(selectedRows)

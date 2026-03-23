@@ -29,12 +29,21 @@ General correctness cannot be quaranteed. Always validate the results against yo
 
 # Installation
 
+Download the source code and install dependencies. Installation and running requires [Node.js](https://nodejs.org/). Node.js v25 is supported, although the program will likely run on other versions too.
+
 ```
 $ npm install
+```
+
+Create and adjust the configuration file.
+
+```
 $ cp config-sample.json config.json
 ```
 
-Provide your transactions in a `transaction-history.csv`. See `lib/readRows.js` for the expected column labels.
+Provide your transactions in a `journal.csv` and place it under `data` directory. See `config.json` to use different filepath.
+
+See [Journal Format](#journal-format) below for the expected column labels.
 
 ```
 $ npm start

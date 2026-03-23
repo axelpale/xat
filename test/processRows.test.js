@@ -6,8 +6,6 @@ const readRows = require('../lib/rows/readRows')
 const processRows = require('../lib/rows/processRows')
 const AccountCollection = require('../lib/AccountCollection')
 const EventCollection = require('../lib/EventCollection')
-const collectSalesData = require('../lib/reports/collectSalesData')
-const collectRewardsData = require('../lib/reports/collectRewardsData')
 
 test('processRows: ensure accounts match', async (t) => {
   // Read the prices
@@ -26,8 +24,8 @@ test('processRows: ensure accounts match', async (t) => {
 
   const date0 = '2026-01-01'
   const date1 = '2027-01-01'
-  const salesData = collectSalesData(accounts, events, date0, date1)
-  const rewardsData = collectRewardsData(accounts, events, date0, date1)
+  const salesData = events.collectReport('sale', date0, date1)
+  const rewardsData = events.collectReport('reward', date0, date1)
 
   t.equal(salesData.length, 4, 'expected num of asset sales')
   t.equal(rewardsData.length, 1, 'expected num of rewards')

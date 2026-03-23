@@ -11,7 +11,7 @@ const collectRewardsData = require('../lib/reports/collectRewardsData')
 
 test('processRows: ensure accounts match', async (t) => {
   // Read the prices
-  const ledgerPath = path.resolve(__dirname, 'data', 'test-ledger.csv')
+  const ledgerPath = path.resolve(__dirname, 'data', 'test-journal.csv')
   const rows = await readRows(ledgerPath)
 
   t.equal(rows.length, 7, 'should have expected num of rows')

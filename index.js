@@ -94,8 +94,8 @@ const main = async function () {
   const rangeEnd = '2026-01-01'
   const rangeLabel = rangeBegin + '_' + rangeEnd
 
-  printReport(balanceDataEachYear, 'account_balances_' + rangeLabel)
-  printReport(assetsDataEachYear, 'account_assets_' + rangeLabel)
+  printReport(balanceDataEachYear, 'balances_' + rangeLabel)
+  printReport(assetsDataEachYear, 'assets_' + rangeLabel)
 
   printAcquisitionsReport(accounts, events, rangeBegin, rangeEnd)
   printAirdropsReport(accounts, events, rangeBegin, rangeEnd)

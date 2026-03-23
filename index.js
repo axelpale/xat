@@ -87,7 +87,6 @@ const main = async function () {
     assetsData.forEach(datum => assetsDataEachYear.push(datum))
 
     // TODO balance report per currency total
-    // TODO acquisition events report
   }
 
   // TODO get full range

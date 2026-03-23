@@ -6,6 +6,7 @@ require('./groupRowsByYear.test.js')
 require('./inRange.test.js')
 require('./inSpread.test.js')
 require('./tomorrow.test.js')
+require('./unique.test.js')
 require('./yesterday.test.js')
 // Classes
 require('./Asset.test.js')

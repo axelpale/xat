@@ -1,7 +1,15 @@
 {
+  // Set how much the computed account balance is allowed to differ
+  // from the known account balance before an error is raised.
   "BALANCE_CHECK_ERROR_MARGIN": "0.00000001",
+
+  // In case of an error, display the full row in addition to error message.
   "DISPLAY_ERROR_ROW": false,
+
+  // In case of an error, display error trace for source code debugging.
   "DISPLAY_ERROR_TRACE": false,
+
+  // Display a annual summary in console regardless of errors.
   "DISPLAY_REPORT_ALWAYS": false,
 
   // Number of days from acquisition or disposal of asset so that
@@ -11,7 +19,12 @@
   // Array of accounts to exclude from balance reports.
   "REPORTS_EXCLUDE_ACCOUNTS": [],
 
+  // The source data of transactions.
   "SOURCE_LEDGER": "data/journal.csv",
+
+  // In case of an error, continue processing or stop immediately.
+  // Set true to focus fixing errors one by one.
+  // Set false to see all the errors. Useful for error hunting.
   "STOP_AFTER_FIRST_ERROR": false,
 
   // Control what part of the ledger will be processed.

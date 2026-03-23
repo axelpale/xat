@@ -1,5 +1,6 @@
 // Test utilities
 require('./diffDays.test.js')
+require('./findRange.test.js')
 require('./getYearFromDateTime.test.js')
 require('./groupRowsByYear.test.js')
 require('./inRange.test.js')

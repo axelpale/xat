@@ -5,16 +5,17 @@ const getRowsBeforeDate = require('./lib/rows/getRowsBeforeDate')
 const getYearFromDateTime = require('./lib/utils/getYearFromDateTime')
 const groupRowsByYear = require('./lib/rows/groupRowsByYear')
 const processRows = require('./lib/rows/processRows')
+const collectAssetsData = require('./lib/reports/collectAssetsData')
+const collectBalanceData = require('./lib/reports/collectBalanceData')
 const printAnnualReport = require('./lib/reports/printAnnualReport')
 const printSummaryReport = require('./lib/reports/printSummaryReport')
-const printBalanceReport = require('./lib/reports/printBalanceReport')
-const printAssetsReport = require('./lib/reports/printAssetsReport')
 const printAirdropsReport = require('./lib/reports/printAirdropsReport')
 const printGiftsReport = require('./lib/reports/printGiftsReport')
 const printMiningReport = require('./lib/reports/printMiningReport')
 const printRewardsReport = require('./lib/reports/printRewardsReport')
 const printSalesReport = require('./lib/reports/printSalesReport')
 const printTransactionsReport = require('./lib/reports/printTransactionsReport')
+const printReport = require('./lib/reports/printReport')
 const prices = require('./lib/prices')
 const config = require('./lib/readConfig')
 
@@ -48,6 +49,11 @@ const main = async function () {
   // Split rows into annual batches.
   const batches = groupRowsByYear(selectedRows)
 
+  // Collect balance data annually and produce a single balance report.
+  const balanceDataEachYear = []
+  // Collect asset data annually and produce a single assets report.
+  const assetsDataEachYear = []
+
   // Process rows year by year.
   let success = true
   let i, batch
@@ -56,25 +62,33 @@ const main = async function () {
     success = processRows(accounts, events, batch)
 
     if (!success) {
-      break
+      break // Stop on error.
     }
     if (batch.length < 1) {
-      continue
+      continue // Skip empty years.
     }
 
     const firstDate = batch[0].date
     const year = getYearFromDateTime(firstDate)
+    const datestamp = `${year + 1}-01-01`
 
-    const endOfYear = `${year}-12-31`
-    printBalanceReport(accounts, endOfYear)
-    printAssetsReport(accounts, endOfYear)
+    const balanceData = collectBalanceData(accounts, datestamp)
+    balanceData.forEach(datum => balanceDataEachYear.push(datum))
+
+    const assetsData = collectAssetsData(accounts, datestamp)
+    assetsData.forEach(datum => assetsDataEachYear.push(datum))
 
     // TODO balance report per currency total
     // TODO acquisition events report
   }
 
-  const rangeBegin = `2012-01-01`
-  const rangeEnd = `2026-01-01`
+  // TODO get full range
+  const rangeBegin = '2012-01-01'
+  const rangeEnd = '2026-01-01'
+  const rangeLabel = rangeBegin + '_' + rangeEnd
+
+  printReport(balanceDataEachYear, 'account_balances_' + rangeLabel)
+  printReport(assetsDataEachYear, 'account_assets_' + rangeLabel)
 
   printAirdropsReport(accounts, events, rangeBegin, rangeEnd)
   printGiftsReport(accounts, events, rangeBegin, rangeEnd)

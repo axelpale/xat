@@ -11,7 +11,7 @@
   // Array of accounts to exclude from balance reports.
   "REPORTS_EXCLUDE_ACCOUNTS": [],
 
-  "SOURCE_LEDGER": "data/transaction-history.csv",
+  "SOURCE_LEDGER": "data/journal.csv",
   "STOP_AFTER_FIRST_ERROR": false,
 
   // Control what part of the ledger will be processed.

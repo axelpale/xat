@@ -6,12 +6,13 @@ const getDefaultAsset = () => {
   const amount = new BigNumber(10000)
   const unit = 'DOGE'
   const origin = 'Dogecoin Network'
+  const docs = ['2023-04-20-00']
   const id = 1
   const date = '2023-04-20'
   const unitPrice = new BigNumber('0.08')
   const expense = new BigNumber('2.025')
 
-  const asset = new Asset(amount, unit, origin, id, date, unitPrice)
+  const asset = new Asset(amount, unit, origin, docs, id, date, unitPrice)
   asset.addExpenseEur(date, expense)
 
   return asset

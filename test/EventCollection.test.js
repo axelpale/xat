@@ -8,11 +8,12 @@ const Asset = require('../lib/Asset')
 const createReward = (id, amount, date) => {
   const bigAmount = new BigNumber(amount)
   const unit = 'DOGE'
+  const docs = []
   const origin = 'Dogecoin Network'
   const unitPrice = new BigNumber('0.1')
   const expense = bigAmount.times(new BigNumber(0.02))
 
-  const asset = new Asset(bigAmount, unit, origin, id, date, unitPrice)
+  const asset = new Asset(bigAmount, unit, origin, docs, id, date, unitPrice)
   asset.addExpenseEur(date, expense)
 
   return new Reward(id, date, [asset], ZERO)

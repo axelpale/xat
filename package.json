@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/axelpale/xat.git"
   },
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "author": "Akseli Palén <akseli.palen@gmail.com>",
   "type": "commonjs",
   "main": "index.js",

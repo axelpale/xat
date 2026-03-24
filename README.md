@@ -6,7 +6,7 @@ Asset bookkeeping software designed to help in Finnish cryptocurrency taxation a
 
 ### Disclaimer
 
-The software is provides as-is and without any warranty. General correctness cannot be quaranteed. Always validate the results with your own calculations. I wrote his software to help me to compute my taxes in my specific case. Your case might differ.
+The software is provided "as is", without warranty of any kind. It is not financial advice and should not be used for financial reporting or taxation without proper validation. I wrote his software to help me to compute my taxes in my specific case. Your case might differ.
 
 ### Features
 
@@ -87,4 +87,16 @@ See `package.json` for more development tooling.
 
 # License
 
-GPLv3
+Copyright 2026 Akseli Palén
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this software except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

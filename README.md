@@ -2,23 +2,22 @@
 
 ![Logo](doc/xat_logo.png)
 
-Asset bookkeeping algorithm to help in Finnish cryptocurrency taxation.
+Asset bookkeeping software designed to help in Finnish cryptocurrency taxation and reporting.
 
 ### Disclaimer
 
-General correctness cannot be quaranteed. Always validate the results against your own calculations. I wrote his program to help me to compute my taxes in my specific case. Your case might differ.
+The software is provides as-is and without any warranty. General correctness cannot be quaranteed. Always validate the results with your own calculations. I wrote his software to help me to compute my taxes in my specific case. Your case might differ.
 
-### Features:
+### Features
 
 - Double-entry accounting
 - High-precision decimal representation of financial numbers ([big.js](https://github.com/mikemcl/big.js/))
-- Maintain account-level FIFO-ordering of acquired assets.
+- Configurable FIFO ordering for global, per-account, and per-market FIFO pools.
 - Process transaction journal file into assets, accounts, and tax events.
 - Compute account balances at any given time.
 - Automatic error detection of negative balance and balance mismatch.
-- Configurable error-tolerance of balance mismatch.
-- Support checking against known balance.
-- Generate annual reports of transactions and balances.
+- Support checking against known balance with configurable error-tolerance.
+- Generate annual reports of sales, rewards, transactions, and balances.
 - Realize transaction fees that were charged in crypto.
 - Carry transaction fees into associated sales for tax deduction.
 - Uses CoinGecko.com data for default asset price retrieval.
@@ -41,9 +40,7 @@ Create and adjust the configuration file.
 $ cp config-sample.json config.json
 ```
 
-Provide your transactions in a `journal.csv` and place it under `data` directory. See `config.json` to use different filepath.
-
-See [Journal Format](#journal-format) below for the expected column labels.
+Provide your transactions in a `journal.csv` and place it under `data` directory. See `config.json` to use different filepath. See [Journal Format](#journal-format) below for the required column labels.
 
 ```
 $ npm start
@@ -84,6 +81,9 @@ Run the test suite:
 ```
 $ npm test
 ```
+
+See `package.json` for more development tooling.
+
 
 # License
 

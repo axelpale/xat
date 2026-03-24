@@ -17,7 +17,7 @@ The software is provides as-is and without any warranty. General correctness can
 - Compute account balances at any given time.
 - Automatic error detection of negative balance and balance mismatch.
 - Support checking against known balance with configurable error-tolerance.
-- Generate annual reports of sales, rewards, transactions, and balances.
+- Generate annual reports of sales, rewards, transactions, and balances in `csv` format.
 - Realize transaction fees that were charged in crypto.
 - Carry transaction fees into associated sales for tax deduction.
 - Uses CoinGecko.com data for default asset price retrieval.
@@ -28,7 +28,7 @@ The software is provides as-is and without any warranty. General correctness can
 
 # Installation
 
-Download the source code and install dependencies. Installation and running requires [Node.js](https://nodejs.org/). Node.js v25 is supported, although the program will likely run on other versions too.
+Download the source code and install dependencies. Installation and running requires [Node.js](https://nodejs.org/). Node.js v25 on macOS 14 is supported, although the program will likely run on other versions too.
 
 ```
 $ npm install

@@ -78,13 +78,12 @@ const main = async function () {
 
     const assetsData = collectAssetsData(accounts, datestamp)
     assetsData.forEach(datum => assetsDataEachYear.push(datum))
-
-    // TODO balance report per currency total
   }
 
-  // TODO get full range
-  const rangeBegin = '2012-01-01'
-  const rangeEnd = '2026-01-01'
+  // Print reports for full year range
+  const yearRange = events.findYearRangeAny()
+  const rangeBegin = `${yearRange.minYear}-01-01`
+  const rangeEnd = `${yearRange.maxYear + 1}-01-01`
   const rangeLabel = rangeBegin + '_' + rangeEnd
 
   printReport(balanceDataEachYear, 'balances_' + rangeLabel)

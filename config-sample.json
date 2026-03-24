@@ -18,7 +18,7 @@
 
   // Control which FIFO ordering scheme is used.
   // Available values are: "global", "account", "markets"
-  "FIFO_SCHEME": "account",
+  "FIFO_ORDER": "account",
 
   // Array of accounts to exclude from balance reports.
   "REPORTS_EXCLUDE_ACCOUNTS": [],

@@ -16,6 +16,10 @@
   // an expense can be considered acquisition expense of sale expense.
   "EXPENSE_DAY_MARGIN": 14,
 
+  // Control which FIFO ordering scheme is used.
+  // Available values are: "global", "account", "markets"
+  "FIFO_SCHEME": "account",
+
   // Array of accounts to exclude from balance reports.
   "REPORTS_EXCLUDE_ACCOUNTS": [],
 

@@ -22,20 +22,8 @@ const main = async function () {
     throw new Error('No valid rows to process.')
   }
 
-  // Maintain accounts.
-  // Each account has a name and a basket of assets of one unit.
-  const accounts = new AccountCollection()
-  // Collect financial events. Separate by type and tax consequences.
-  const events = new EventCollection()
-
-  // Only include rows before a certain date if so configured.
-  let selectedRows = rows
-  if (config.STOP_BEFORE_DATE) {
-    console.log('Processing rows before ' + config.STOP_BEFORE_DATE + '.')
-    selectedRows = getRowsBeforeDate(rows, config.STOP_BEFORE_DATE)
-  }
-
   // Preload price history data.
+  console.log('Load historical prices:')
   await prices.loadPriceHistory('BTC')
   await prices.loadPriceHistory('ETH')
   await prices.loadPriceHistory('SOL')
@@ -46,6 +34,20 @@ const main = async function () {
   await prices.loadPriceHistory('TRX')
   await prices.loadPriceHistory('GRT')
   await prices.loadPriceHistory('FLOW')
+  console.log()
+
+  // Maintain accounts.
+  // Each account has a name and a basket of assets of one unit.
+  const accounts = new AccountCollection()
+  // Collect financial events. Separate by type and tax consequences.
+  const events = new EventCollection()
+
+  // Only include rows before a certain date if so configured.
+  let selectedRows = rows
+  if (config.STOP_BEFORE_DATE) {
+    console.log(`Processing transactions until ${config.STOP_BEFORE_DATE}...`)
+    selectedRows = getRowsBeforeDate(rows, config.STOP_BEFORE_DATE)
+  }
 
   // Split rows into annual batches.
   const batches = groupRowsByYear(selectedRows)
@@ -99,6 +101,7 @@ const main = async function () {
   printEventReport(events, 'transaction', rangeBegin, rangeEnd, 'transactions')
 
   if (success || config.DISPLAY_REPORT_ALWAYS) {
+    console.log()
     printAnnualReport(accounts, events)
     printSummaryReport(accounts, events)
   }

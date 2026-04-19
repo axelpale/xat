@@ -114,6 +114,7 @@ const main = async function () {
   printEventReport(events, 'reward', rangeBegin, rangeEnd, 'rewards')
   printEventReport(events, 'sale', rangeBegin, rangeEnd, 'sales')
   printEventReport(events, 'transaction', rangeBegin, rangeEnd, 'transactions')
+  printEventReport(events, 'transfer', rangeBegin, rangeEnd, 'transfers')
 
   if (success || config.DISPLAY_REPORT_ALWAYS) {
     console.log()

@@ -23,6 +23,9 @@
   // Array of accounts to exclude from balance reports.
   "REPORTS_EXCLUDE_ACCOUNTS": [],
 
+  // Display accounts with zero balance in balances report.
+  "REPORTS_DISPLAY_ZERO_BALANCE": true,
+
   // The source data of transactions.
   "SOURCE_LEDGER": "data/journal.csv",
 

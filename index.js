@@ -88,12 +88,12 @@ const main = async function () {
 
     const firstDate = batch[0].date
     const year = getYearFromDateTime(firstDate)
-    const datestamp = `${year + 1}-01-01`
+    const timestamp = `${year + 1}-01-01 00:00:00`
 
-    const balanceData = collectBalanceData(accounts, datestamp)
+    const balanceData = collectBalanceData(accounts, timestamp)
     balanceData.forEach(datum => balanceDataEachYear.push(datum))
 
-    const assetsData = collectAssetsData(accounts, datestamp)
+    const assetsData = collectAssetsData(accounts, timestamp)
     assetsData.forEach(datum => assetsDataEachYear.push(datum))
   }
 

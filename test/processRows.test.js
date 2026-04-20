@@ -58,7 +58,7 @@ test('processRows: ensure accounts match', async (t) => {
   t.ok(totalGain.eq(expectedGain), 'should compute gain ok')
 
   const totalRewardIncome = rewardsData.reduce((acc, x) => {
-    return acc.plus(x.capitalIncomeEur)
+    return acc.plus(x.rewardIncomeEur)
   }, ZERO)
 
   // Receive total 0.000012 BTC at 82000 eur / btc => 0.984 eur

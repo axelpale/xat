@@ -20,6 +20,10 @@
   // Available values are: "global", "account", "markets"
   "FIFO_ORDER": "account",
 
+  // Language to use in reporting.
+  // Available values are: "en", "fi"
+  "LOCALE": "en",
+
   // Array of accounts to exclude from balance reports.
   "REPORTS_EXCLUDE_ACCOUNTS": [],
 

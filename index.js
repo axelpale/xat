@@ -99,21 +99,21 @@ const main = async function () {
 
   // Print reports for full year range
   const yearRange = events.findYearRangeAny()
-  const rangeBegin = `${yearRange.minYear}-01-01`
-  const rangeEnd = `${yearRange.maxYear + 1}-01-01`
+  const r0 = `${yearRange.minYear}-01-01`
+  const r1 = `${yearRange.maxYear + 1}-01-01`
 
-  printReport(balanceDataEachYear, rangeBegin, rangeEnd, 'balances')
-  printReport(assetsDataEachYear, rangeBegin, rangeEnd, 'assets')
+  printReport(balanceDataEachYear, r0, r1, 'balancesReport')
+  printReport(assetsDataEachYear, r0, r1, 'assetsReport')
 
-  printEventReport(events, 'acquisition', rangeBegin, rangeEnd, 'acquisitions')
-  printEventReport(events, 'airdrop', rangeBegin, rangeEnd, 'airdrops')
-  printEventReport(events, 'casualty', rangeBegin, rangeEnd, 'casualties')
-  printEventReport(events, 'gift', rangeBegin, rangeEnd, 'gifts')
-  printEventReport(events, 'mining', rangeBegin, rangeEnd, 'mining')
-  printEventReport(events, 'reward', rangeBegin, rangeEnd, 'rewards')
-  printEventReport(events, 'sale', rangeBegin, rangeEnd, 'sales')
-  printEventReport(events, 'transaction', rangeBegin, rangeEnd, 'transactions')
-  printEventReport(events, 'transfer', rangeBegin, rangeEnd, 'transfers')
+  printEventReport(events, 'acquisition', r0, r1, 'acquisitionsReport')
+  printEventReport(events, 'airdrop', r0, r1, 'airdropsReport')
+  printEventReport(events, 'casualty', r0, r1, 'casualtiesReport')
+  printEventReport(events, 'gift', r0, r1, 'giftsInReport')
+  printEventReport(events, 'mining', r0, r1, 'miningReport')
+  printEventReport(events, 'reward', r0, r1, 'rewardsReport')
+  printEventReport(events, 'sale', r0, r1, 'salesReport')
+  printEventReport(events, 'transaction', r0, r1, 'transactionsReport')
+  printEventReport(events, 'transfer', r0, r1, 'transfersReport')
 
   if (success || config.DISPLAY_REPORT_ALWAYS) {
     console.log()

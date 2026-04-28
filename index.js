@@ -108,7 +108,7 @@ const main = async function () {
   printEventReport(events, 'acquisition', r0, r1, 'acquisitionsReport')
   printEventReport(events, 'airdrop', r0, r1, 'airdropsReport')
   printEventReport(events, 'casualty', r0, r1, 'casualtiesReport')
-  printEventReport(events, 'gift', r0, r1, 'giftsInReport')
+  printEventReport(events, 'giftin', r0, r1, 'giftsInReport')
   printEventReport(events, 'mining', r0, r1, 'miningReport')
   printEventReport(events, 'reward', r0, r1, 'rewardsReport')
   printEventReport(events, 'sale', r0, r1, 'salesReport')

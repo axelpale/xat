@@ -101,10 +101,9 @@ const main = async function () {
   const yearRange = events.findYearRangeAny()
   const rangeBegin = `${yearRange.minYear}-01-01`
   const rangeEnd = `${yearRange.maxYear + 1}-01-01`
-  const rangeLabel = rangeBegin + '_' + rangeEnd
 
-  printReport(balanceDataEachYear, 'balances_' + rangeLabel)
-  printReport(assetsDataEachYear, 'assets_' + rangeLabel)
+  printReport(balanceDataEachYear, rangeBegin, rangeEnd, 'balances')
+  printReport(assetsDataEachYear, rangeBegin, rangeEnd, 'assets')
 
   printEventReport(events, 'acquisition', rangeBegin, rangeEnd, 'acquisitions')
   printEventReport(events, 'airdrop', rangeBegin, rangeEnd, 'airdrops')
